@@ -12,7 +12,7 @@
 - [x] Build a polished document dashboard with status, confidence, document count, and workflow metrics.
 - [x] Build the human-in-the-loop review workspace with PDF preview, extracted values, confidence visualization, and audit timeline.
 - [x] Build a public shareable demo route with a representative sample document and end-to-end pipeline story.
-- [x] Build the hackathon submission materials page with project pitch, one-line summary, architecture narrative, and demo-video placeholder.
+- [x] Build the hackathon submission materials page with project pitch, one-line summary, inspectable architecture narrative, and demo-video placeholder.
 - [x] Add unit tests covering status labels, audit event construction, confidence classification, and demo access.
 - [x] Run tests and type checks, inspect the rendered desktop and mobile views, and correct issues found.
 - [ ] Save a final checkpoint after every completed requirement is marked complete.
@@ -22,5 +22,8 @@
 - [x] Implement and visibly demonstrate the highest-value compatible sponsor integrations, with a dedicated evidence section in the submission materials (Nutrient DWS is primary; optional tracks are explicitly unclaimed).
 - [x] Verify that the intended Devpost event is discoverable and accepting registrations before representing ProofPilot as an entry for that event (the direct registration link is available although the directory listing is unreliable).
 - [ ] Supply the Nutrient DWS API key and validate extraction and tamper-evident signing against a non-sensitive test PDF.
+- [ ] Connect the user-authorized Comet browser session to access Nutrient DWS without sharing passwords in chat.
 - [ ] Record the required public demo video using the live Nutrient workflow and add its URL to the submission page.
+- [x] Prepare the 90–120 second judge-demo runbook, recording sequence, and public video description.
+- [x] Add the non-sensitive source PDF to the public demo so judges can inspect the representative sample document.
 - [ ] Register and submit ProofPilot to DevNetwork only after the user explicitly approves the final submission.
