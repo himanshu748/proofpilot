@@ -31,7 +31,7 @@
 - [x] Evaluate and implement only additional sponsor integrations that are credibly central to the ProofPilot workflow and can be live-demonstrated (SerpApi was added; other tracks remain unclaimed until real credentials and product-critical use are available).
 - [x] Securely configure and live-validate the SerpApi credential before exposing issuer or policy research to reviewers.
 - [x] Complete an authenticated end-to-end test: upload the synthetic PDF, run live SerpApi research, and confirm the evidence is persisted in the document audit trail (verified on 2026-08-17: document e6ad8bdf-f2f0-4c81-b776-af1aab4d1c88 recorded Nutrient extraction and a SerpApi audit event with four returned research results).
-- [ ] Record the required public demo video using the live Nutrient workflow and add its URL to the submission page.
+- [ ] Record the required public demo video using the live Nutrient workflow and add its URL to the submission page (pending restoration of live credentials or credits).
 - [x] Prepare the 90–120 second judge-demo runbook, recording sequence, and public video description.
 - [x] Prepare ready-to-paste Devpost title, pitch, technical architecture, accomplishment, challenge, and sponsor-statement copy.
 - [x] Add the non-sensitive source PDF to the public demo so judges can inspect the representative sample document.
@@ -49,4 +49,6 @@
 - [x] Redesign the ProofPilot landing page into a high-impact, judge-focused first impression with direct access to sponsor evidence, the public demo, and reproducible source.
 - [x] Preserve a checkpoint after the successful desktop/mobile landing-page verification, regression suite, type check, and production build.
 - [x] Create a 2–4 minute editable ProofPilot competition-demo video from verified, non-sensitive screens and audit evidence without requiring live provider credentials (`out/proofpilot-demo.mp4`, 160 seconds, 10.1 MB, rendered after user approval).
-- [ ] Obtain separate approval to host the final ProofPilot demo video publicly and add its URL to the Devpost submission materials.
+- [x] Obtain separate approval to host the final ProofPilot demo video publicly and add its URL to the Devpost submission materials.
+- [x] Upload the user-approved final ProofPilot MP4 to YouTube as Unlisted and record its public watch URL in the project submission materials (https://youtu.be/xQEKBa28580).
+- [x] Publish the approved credential-independent fallback walkthrough using real ProofPilot screens and previously live-validated Nutrient evidence because the live key was unavailable (https://youtu.be/xQEKBa28580).
