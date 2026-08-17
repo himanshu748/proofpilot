@@ -18,6 +18,8 @@ The Processor credential was live-validated on August 17, 2026 with the same syn
 
 The strengthened live signing test verifies both a valid PDF artifact and a `/ByteRange` marker inside the returned PDF. ProofPilot now records this `byteRangeMarkerPresent` signing-evidence value alongside the provider request identifier and response content type in the `nutrient.signing.completed` audit metadata.
 
+The external-service tests are intentionally opt-in: `pnpm test` runs only non-billing regression checks, while `pnpm test:live` runs `*.live.test.ts` with `RUN_LIVE_INTEGRATION_TESTS=true`. This prevents normal local or CI checks from consuming API credits. On August 17, 2026, a later repeat of the live Processor test correctly received a `402` response because that separate free-credit balance had been exhausted; it does not invalidate the earlier successful signing validation or its `/ByteRange` evidence.
+
 ## Shipaton Repository Inspection
 
 The selected `himanshu748/himanshu-portfolio` repository is a Vite/React portfolio archive rather than a Shipaton app or game. It contains no Shipaton build to import or continue, so ProofPilot is being created as an independent project.
