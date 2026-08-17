@@ -42,5 +42,7 @@
 - [x] Re-run regression checks and visually verify the updated in-app sponsor evidence before preserving the competitive-readiness checkpoint.
 - [x] Update the protected reviewer experience with explicit sponsor-evidence messaging for the verified Nutrient DWS and SerpApi roles.
 - [x] Save a new competitive-readiness checkpoint after the completed regression checks and two-surface visual verification.
-- [ ] Create and push the user-approved public `himanshu748/proofpilot` repository with the current verified source and setup guide.
-- [ ] Register the user-approved ProofPilot entry for the DevNetwork hackathon and prepare its sponsor-track submission draft in Devpost.
+- [x] Create and push the user-approved public `himanshu748/proofpilot` repository with the current verified source and setup guide (verified public at https://github.com/himanshu748/proofpilot).
+- [x] Register the user-approved ProofPilot entry for the DevNetwork hackathon (confirmed by Devpost on 2026-08-17).
+- [ ] Create the approved Devpost project and select the overall, Nutrient DWS, and SerpApi tracks once the submission period opens and the required public demo-video URL is available.
+- [x] Create a concise judge-evidence pack that maps each tracked claim to a reproducible ProofPilot screen, audit event, or repository file (`docs/judge-evidence-pack.md`; non-billing tests and type checks passed).
