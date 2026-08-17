@@ -5,10 +5,10 @@
 - [x] Add database tables for documents, extracted fields, audit events, and shareable demo records.
 - [x] Apply the database migration and verify the schema.
 - [x] Implement S3-backed PDF upload metadata and document storage flow.
-- [x] Implement a Nutrient DWS extraction adapter that records per-field confidence scores and source evidence (live verification awaits the API key).
+- [x] Implement a Nutrient DWS extraction adapter that records per-field confidence scores and source evidence (live-validated against the synthetic sample PDF).
 - [x] Implement the review queue with editable low-confidence fields and explicit pending review, approved, and rejected actions.
 - [x] Persist timestamped audit records for uploads, extraction, edits, review decisions, signing, and demo sharing.
-- [x] Implement the Nutrient DWS signing/finalization adapter and tamper-evident output metadata (live verification awaits the API key).
+- [x] Implement the Nutrient DWS signing/finalization adapter and tamper-evident output metadata (live-validated with a `/ByteRange` signature marker in the output PDF).
 - [x] Build a polished document dashboard with status, confidence, document count, and workflow metrics.
 - [x] Build the human-in-the-loop review workspace with PDF preview, extracted values, confidence visualization, and audit timeline.
 - [x] Build a public shareable demo route with a representative sample document and end-to-end pipeline story.
@@ -21,9 +21,17 @@
 - [x] Map each DevNetwork sponsor category to a compatible ProofPilot capability and exclude tracks whose required integrations would be superficial or conflict with the document workflow.
 - [x] Implement and visibly demonstrate the highest-value compatible sponsor integrations, with a dedicated evidence section in the submission materials (Nutrient DWS is primary; optional tracks are explicitly unclaimed).
 - [x] Verify that the intended Devpost event is discoverable and accepting registrations before representing ProofPilot as an entry for that event (the direct registration link is available although the directory listing is unreliable).
-- [ ] Supply the Nutrient DWS API key and validate extraction and tamper-evident signing against a non-sensitive test PDF.
-- [ ] Connect the user-authorized Comet browser session to access Nutrient DWS without sharing passwords in chat.
+- [x] Supply the Nutrient DWS API key and validate tamper-evident signing against a non-sensitive test PDF (Data Extraction and Processor live validations completed).
+- [x] Supply the separate Nutrient Processor API key and validate signing against the same non-sensitive sample PDF.
+- [x] Verify that the live Processor output contains inspectable PDF signature markers and persist signing-evidence metadata in the ProofPilot audit record.
+- [x] Update the live signing test to assert a signature marker beyond a successful PDF response.
+- [x] Connect the user-authorized browser session to access Nutrient DWS without sharing passwords in chat.
+- [x] Retrieve the user-authorized Nutrient DWS Data Extraction key from the signed-in dashboard and store it through the secure project-secret flow.
+- [x] Add SerpApi-backed issuer and policy research as a reviewer-visible evidence step after its credential is supplied.
+- [x] Evaluate and implement only additional sponsor integrations that are credibly central to the ProofPilot workflow and can be live-demonstrated (SerpApi was added; other tracks remain unclaimed until real credentials and product-critical use are available).
+- [x] Securely configure and live-validate the SerpApi credential before exposing issuer or policy research to reviewers.
 - [ ] Record the required public demo video using the live Nutrient workflow and add its URL to the submission page.
 - [x] Prepare the 90–120 second judge-demo runbook, recording sequence, and public video description.
+- [x] Prepare ready-to-paste Devpost title, pitch, technical architecture, accomplishment, challenge, and sponsor-statement copy.
 - [x] Add the non-sensitive source PDF to the public demo so judges can inspect the representative sample document.
 - [ ] Register and submit ProofPilot to DevNetwork only after the user explicitly approves the final submission.

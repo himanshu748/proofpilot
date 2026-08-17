@@ -14,6 +14,10 @@ function nutrientKey() {
   return process.env.NUTRIENT_DWS_API_KEY;
 }
 
+function nutrientProcessorKey() {
+  return process.env.NUTRIENT_DWS_PROCESSOR_API_KEY;
+}
+
 function pdfBlob(file: Buffer) {
   const bytes = new Uint8Array(file.length);
   bytes.set(file);
@@ -66,13 +70,13 @@ export async function extractWithNutrient(file: Buffer, fileName: string): Promi
 }
 
 export async function signWithNutrient(file: Buffer, fileName: string) {
-  const apiKey = nutrientKey();
+  const apiKey = nutrientProcessorKey();
   if (!apiKey) {
     return {
       signedPdf: file,
       requestId: `demo-sign-${randomUUID().slice(0, 8)}`,
       usedLiveApi: false,
-      providerMessage: "Demo finalization created because NUTRIENT_DWS_API_KEY is not configured.",
+      providerMessage: "Demo finalization created because NUTRIENT_DWS_PROCESSOR_API_KEY is not configured.",
     };
   }
 
@@ -87,10 +91,15 @@ export async function signWithNutrient(file: Buffer, fileName: string) {
   if (!response.ok) {
     throw new Error(`Nutrient signing failed (${response.status}): ${await response.text()}`);
   }
+  const signedPdf = Buffer.from(await response.arrayBuffer());
   return {
-    signedPdf: Buffer.from(await response.arrayBuffer()),
+    signedPdf,
     requestId: response.headers.get("x-request-id") ?? undefined,
     usedLiveApi: true,
+    signatureEvidence: {
+      byteRangeMarkerPresent: signedPdf.toString("latin1").includes("/ByteRange"),
+      responseContentType: response.headers.get("content-type") ?? "application/pdf",
+    },
     providerMessage: "Nutrient DWS digital signature applied with a tamper-evident signed artifact.",
   };
 }

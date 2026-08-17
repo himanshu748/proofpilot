@@ -7,6 +7,7 @@ import { protectedProcedure, publicProcedure, router } from "./_core/trpc";
 import { createProofDocument, getProofDocument, listProofDocuments, recordAudit, updateProofDocumentStatus, updateProofField } from "./db";
 import { extractWithNutrient, signWithNutrient } from "./nutrient";
 import { averageConfidence, buildDemoAudit, classifyStatus, demoFields } from "./proofpilot";
+import { researchIssuerWithSerpApi } from "./serpapi";
 import { storageGetSignedUrl, storagePut } from "./storage";
 
 const documentIdInput = z.object({ documentId: z.string().uuid() });
@@ -44,6 +45,17 @@ export const appRouter = router({
     })),
     list: protectedProcedure.query(({ ctx }) => listProofDocuments(ctx.user.id)),
     get: protectedProcedure.input(documentIdInput).query(({ ctx, input }) => getOwnedDocument(input.documentId, ctx.user.id)),
+    researchIssuer: protectedProcedure.input(documentIdInput).mutation(async ({ ctx, input }) => {
+      const record = await getOwnedDocument(input.documentId, ctx.user.id);
+      const issuerField = record.fields.find(field => /vendor|issuer|supplier|company/i.test(field.label) || /vendor|issuer|supplier|company/i.test(field.fieldKey));
+      const research = await researchIssuerWithSerpApi(issuerField?.value ?? record.document.fileName.replace(/\.pdf$/i, ""));
+      await recordAudit(input.documentId, ctx.user.id, "serpapi.issuer.research", research.providerMessage, {
+        issuer: research.issuer,
+        query: research.query,
+        findings: research.findings,
+      });
+      return research;
+    }),
     upload: protectedProcedure.input(z.object({
       fileName: z.string().min(1).max(255),
       contentBase64: z.string().min(1),
@@ -104,7 +116,11 @@ export const appRouter = router({
         signingRequestId: signed.requestId,
         finalizedAt: new Date(),
       });
-      await recordAudit(input.documentId, ctx.user.id, "nutrient.signing.completed", signed.providerMessage, { requestId: signed.requestId, usedLiveApi: signed.usedLiveApi });
+      await recordAudit(input.documentId, ctx.user.id, "nutrient.signing.completed", signed.providerMessage, {
+        requestId: signed.requestId,
+        usedLiveApi: signed.usedLiveApi,
+        signatureEvidence: signed.signatureEvidence ?? { byteRangeMarkerPresent: false, responseContentType: "demo" },
+      });
       return getProofDocument(input.documentId);
     }),
   }),
