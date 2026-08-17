@@ -36,3 +36,9 @@
 - [x] Prepare ready-to-paste Devpost title, pitch, technical architecture, accomplishment, challenge, and sponsor-statement copy.
 - [x] Add the non-sensitive source PDF to the public demo so judges can inspect the representative sample document.
 - [ ] Register and submit ProofPilot to DevNetwork only after the user explicitly approves the final submission.
+- [x] Audit the Nutrient DWS and SerpApi sponsor-track criteria against ProofPilot’s verified live evidence and identify only credible, high-scoring differentiators.
+- [x] Strengthen the product messaging, Devpost copy, and judge-demo narrative around the verified Nutrient DWS and SerpApi integrations without overstating eligibility or validation.
+- [x] Update in-app public-demo and reviewer messaging to reflect the verified Nutrient DWS and SerpApi roles without stale credential-status wording.
+- [x] Re-run regression checks and visually verify the updated in-app sponsor evidence before preserving the competitive-readiness checkpoint.
+- [x] Update the protected reviewer experience with explicit sponsor-evidence messaging for the verified Nutrient DWS and SerpApi roles.
+- [ ] Save a new competitive-readiness checkpoint after the completed regression checks and two-surface visual verification.

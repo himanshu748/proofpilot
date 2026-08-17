@@ -48,9 +48,16 @@ export const appRouter = router({
     researchIssuer: protectedProcedure.input(documentIdInput).mutation(async ({ ctx, input }) => {
       const record = await getOwnedDocument(input.documentId, ctx.user.id);
       const issuerField = record.fields.find(field => /vendor|issuer|supplier|company/i.test(field.label) || /vendor|issuer|supplier|company/i.test(field.fieldKey));
-      const research = await researchIssuerWithSerpApi(issuerField?.value ?? record.document.fileName.replace(/\.pdf$/i, ""));
+      const openReviewField = record.fields
+        .filter(field => field.requiresReview && !field.reviewedAt)
+        .sort((a, b) => Number(a.confidence) - Number(b.confidence))[0];
+      const research = await researchIssuerWithSerpApi(
+        issuerField?.value ?? record.document.fileName.replace(/\.pdf$/i, ""),
+        openReviewField?.label,
+      );
       await recordAudit(input.documentId, ctx.user.id, "serpapi.issuer.research", research.providerMessage, {
         issuer: research.issuer,
+        reviewFocus: research.reviewFocus,
         query: research.query,
         findings: research.findings,
       });
