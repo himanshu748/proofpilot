@@ -1,0 +1,26 @@
+# Project TODO
+
+- [x] Inspect the selected GitHub repository and document the Shipaton project currently under development (the selected repository is a portfolio archive; it contains no Shipaton app or game to reuse).
+- [x] Create the ProofPilot dashboard shell with responsive navigation and the required document status wording.
+- [x] Add database tables for documents, extracted fields, audit events, and shareable demo records.
+- [x] Apply the database migration and verify the schema.
+- [x] Implement S3-backed PDF upload metadata and document storage flow.
+- [x] Implement a Nutrient DWS extraction adapter that records per-field confidence scores and source evidence (live verification awaits the API key).
+- [x] Implement the review queue with editable low-confidence fields and explicit pending review, approved, and rejected actions.
+- [x] Persist timestamped audit records for uploads, extraction, edits, review decisions, signing, and demo sharing.
+- [x] Implement the Nutrient DWS signing/finalization adapter and tamper-evident output metadata (live verification awaits the API key).
+- [x] Build a polished document dashboard with status, confidence, document count, and workflow metrics.
+- [x] Build the human-in-the-loop review workspace with PDF preview, extracted values, confidence visualization, and audit timeline.
+- [x] Build a public shareable demo route with a representative sample document and end-to-end pipeline story.
+- [x] Build the hackathon submission materials page with project pitch, one-line summary, architecture narrative, and demo-video placeholder.
+- [x] Add unit tests covering status labels, audit event construction, confidence classification, and demo access.
+- [x] Run tests and type checks, inspect the rendered desktop and mobile views, and correct issues found.
+- [ ] Save a final checkpoint after every completed requirement is marked complete.
+- [x] Verify access boundaries for GitHub, the DevNetwork hackathon page, Nutrient DWS, and any future publication account before attempting a user-authorized action (GitHub is authenticated; Nutrient DWS and Devpost require user sign-in).
+- [x] Document any service that requires the user to complete a personal login, credential entry, payment, or final submission confirmation.
+- [x] Map each DevNetwork sponsor category to a compatible ProofPilot capability and exclude tracks whose required integrations would be superficial or conflict with the document workflow.
+- [x] Implement and visibly demonstrate the highest-value compatible sponsor integrations, with a dedicated evidence section in the submission materials (Nutrient DWS is primary; optional tracks are explicitly unclaimed).
+- [x] Verify that the intended Devpost event is discoverable and accepting registrations before representing ProofPilot as an entry for that event (the direct registration link is available although the directory listing is unreliable).
+- [ ] Supply the Nutrient DWS API key and validate extraction and tamper-evident signing against a non-sensitive test PDF.
+- [ ] Record the required public demo video using the live Nutrient workflow and add its URL to the submission page.
+- [ ] Register and submit ProofPilot to DevNetwork only after the user explicitly approves the final submission.
