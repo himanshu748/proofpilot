@@ -47,4 +47,4 @@
 - [ ] Create the approved Devpost project and select the overall, Nutrient DWS, and SerpApi tracks once the submission period opens and the required public demo-video URL is available.
 - [x] Create a concise judge-evidence pack that maps each tracked claim to a reproducible ProofPilot screen, audit event, or repository file (`docs/judge-evidence-pack.md`; non-billing tests and type checks passed).
 - [x] Redesign the ProofPilot landing page into a high-impact, judge-focused first impression with direct access to sponsor evidence, the public demo, and reproducible source.
-- [ ] Preserve a checkpoint after the successful desktop/mobile landing-page verification, regression suite, type check, and production build.
+- [x] Preserve a checkpoint after the successful desktop/mobile landing-page verification, regression suite, type check, and production build.
