@@ -48,3 +48,5 @@
 - [x] Create a concise judge-evidence pack that maps each tracked claim to a reproducible ProofPilot screen, audit event, or repository file (`docs/judge-evidence-pack.md`; non-billing tests and type checks passed).
 - [x] Redesign the ProofPilot landing page into a high-impact, judge-focused first impression with direct access to sponsor evidence, the public demo, and reproducible source.
 - [x] Preserve a checkpoint after the successful desktop/mobile landing-page verification, regression suite, type check, and production build.
+- [x] Create a 2–4 minute editable ProofPilot competition-demo video from verified, non-sensitive screens and audit evidence without requiring live provider credentials (`out/proofpilot-demo.mp4`, 160 seconds, 10.1 MB, rendered after user approval).
+- [ ] Obtain separate approval to host the final ProofPilot demo video publicly and add its URL to the Devpost submission materials.
